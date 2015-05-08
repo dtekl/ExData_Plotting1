@@ -18,7 +18,7 @@ names(energy)[names(energy) == "Time"] <- "datetime"
 
 png("plot3.png")
 plot(energy$datetime, energy$Sub_metering_1, col = "black", type = "l", lwd = 1, ylab = "Energy sub metering", xlab = "")
-legend("topright",lty=1, col = c("black", "red", "blue")), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend("topright",lty=1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
 lines(energy$datetime, energy$Sub_metering_2, col = "red")
 lines(energy$datetime, energy$Sub_metering_3, col = "blue")
