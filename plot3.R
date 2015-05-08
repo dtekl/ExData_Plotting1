@@ -10,15 +10,16 @@ colnames(energy) <- cols
 energy$Date <- as.Date(energy$Date, format="%d/%m/%Y")
 energy$Time <- paste(energy$Date, energy$Time)
 energy$Time <- as.POSIXct(energy$Time)
+names(energy)[names(energy) == "Time"] <- "datetime"
 
 
 
 #Generates and saves plot 3
 
 png("plot3.png")
-plot(energy$Time, energy$Sub_metering_1, col = "black", type = "l", lwd = 1, ylab = "Energy sub metering", xlab = "")
-legend("topright",lty=1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+plot(energy$datetime, energy$Sub_metering_1, col = "black", type = "l", lwd = 1, ylab = "Energy sub metering", xlab = "")
+legend("topright",lty=1, col = c("black", "red", "blue"))#, legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
-lines(energy$Time, energy$Sub_metering_2, col = "red")
-lines(energy$Time, energy$Sub_metering_3, col = "blue")
+lines(energy$datetime, energy$Sub_metering_2, col = "red")
+lines(energy$datetime, energy$Sub_metering_3, col = "blue")
 dev.off()

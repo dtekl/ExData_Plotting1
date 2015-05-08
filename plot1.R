@@ -11,6 +11,7 @@ colnames(energy) <- cols
 energy$Date <- as.Date(energy$Date, format="%d/%m/%Y")
 energy$Time <- paste(energy$Date, energy$Time)
 energy$Time <- as.POSIXct(energy$Time)
+names(energy)[names(energy) == "Time"] <- "datetime"
 
 
 

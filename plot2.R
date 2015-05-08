@@ -10,12 +10,13 @@ colnames(energy) <- cols
 energy$Date <- as.Date(energy$Date, format="%d/%m/%Y")
 energy$Time <- paste(energy$Date, energy$Time)
 energy$Time <- as.POSIXct(energy$Time)
+names(energy)[names(energy) == "Time"] <- "datetime"
 
 
 
 #Generates and saves plot 2.
 
 png("plot2.png")
-plot(energy$Time, energy$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "")
+plot(energy$datetime, energy$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "")
 
 dev.off()
